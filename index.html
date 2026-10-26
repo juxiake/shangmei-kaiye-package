@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>开业营销产品包 · 尚美数智酒店集团</title>
+<style>
+  :root{
+    --bg:#FBF4EC;
+    --card:#FFFFFF;
+    --ink:#2B2622;
+    --ink-soft:#6B6259;
+    --orange:#E8531F;
+    --orange-soft:#F26522;
+    --orange-bg:#FDEEE4;
+    --line:#EFE3D6;
+    --gold:#C89B6D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- reveal animation ---------- */
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.on{opacity:1;transform:translateY(0);}
+  .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+
+  /* ---------- header ---------- */
+  header{
+    position:relative;
+    background:linear-gradient(135deg,#FDF8F2 0%,#FBE9DC 55%,#F8D9C4 100%);
+    padding:64px 0 72px;
+    overflow:hidden;
+  }
+  header::before,header::after{
+    content:"";position:absolute;border-radius:50%;
+    border:1.5px solid rgba(232,83,31,.18);
+  }
+  header::before{width:420px;height:420px;right:-120px;top:-140px;}
+  header::after{width:620px;height:620px;right:-220px;top:-240px;}
+  .tag{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1px solid rgba(232,83,31,.4);
+    color:var(--orange);
+    font-size:clamp(20px,3vw,32px);
+    font-weight:600;letter-spacing:2px;
+    padding:10px 26px;border-radius:999px;background:rgba(255,255,255,.6);
+  }
+  .tag::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--orange);}
+  .brandline{position:absolute;right:32px;top:44px;}
+  .brand-logo{width:200px;height:auto;display:block;}
+  .brand-dept{font-size:15px;font-weight:600;color:var(--ink-soft);text-align:right;margin-top:14px;}
+  @media(max-width:640px){.brand-logo{width:150px;}}
+  h1{
+    font-size:clamp(40px,6vw,64px);
+    font-weight:900;letter-spacing:2px;margin:22px 0 18px;
+  }
+  .badge{
+    display:inline-block;background:var(--orange);color:#fff;
+    font-size:clamp(18px,2.4vw,26px);font-weight:700;
+    padding:8px 22px;border-radius:6px;letter-spacing:2px;
+    box-shadow:0 8px 20px rgba(232,83,31,.28);
+  }
+  .lead{
+    margin-top:30px;max-width:640px;
+    border-left:3px solid var(--orange);
+    padding-left:16px;font-size:15px;color:var(--ink-soft);
+  }
+  .lead b{color:var(--ink);}
+  .head-what{margin-top:26px;}
+  .head-what .hw-main{font-size:clamp(34px,5vw,56px);font-weight:900;line-height:1.25;}
+  .head-what .hw-main .plus{color:var(--orange);font-weight:800;margin:0 8px;}
+  .head-what .hw-d{margin-top:8px;font-size:15px;color:var(--ink-soft);}
+  .head-what .hw-d b{color:var(--orange);}
+
+  /* ---------- section head ---------- */
+  section{padding:72px 0 8px;}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:10px;}
+  .sec-no{
+    font-size:15px;font-weight:800;color:var(--orange);
+    font-style:italic;letter-spacing:1px;
+  }
+  h2{
+    font-size:clamp(26px,3.6vw,36px);font-weight:900;letter-spacing:1px;
+    display:inline-block;position:relative;padding-bottom:8px;
+  }
+  h2::after{
+    content:"";position:absolute;left:0;bottom:0;height:5px;width:100%;
+    background:linear-gradient(90deg,var(--orange),rgba(232,83,31,.15));
+    border-radius:3px;
+  }
+  .sec-desc{color:var(--ink-soft);font-size:14px;margin:8px 0 34px;max-width:680px;}
+  .tier-tip{display:none;}
+  /* ---------- 06 其它QA ---------- */
+  .qa-list{display:grid;gap:16px;}
+  .qa{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 26px;
+    box-shadow:0 4px 18px rgba(120,80,40,.06);
+  }
+  .qa-q{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:800;color:var(--ink);margin-bottom:10px;}
+  .qa-no{
+    flex:none;width:26px;height:26px;border-radius:8px;background:var(--orange-bg);color:var(--orange);
+    font-size:13px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;
+  }
+  .qa-a{font-size:15px;line-height:1.85;color:var(--ink-soft);}
+  .qa-warn{
+    margin-top:10px;font-size:13.5px;line-height:1.8;color:#8A5A2B;
+    background:var(--orange-bg);border-left:3px solid var(--orange);border-radius:10px;padding:10px 14px;
+  }
+
+  /* ---------- 01 tier cards ---------- */
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .tier-dots{display:none;}
+  @media(max-width:860px){.tiers{grid-template-columns:1fr;}}
+  .tier{
+    background:var(--card);border-radius:18px;padding:28px 26px;
+    border:1px solid var(--line);
+    box-shadow:0 4px 18px rgba(120,80,40,.06);
+    transition:transform .35s ease,box-shadow .35s ease;
+    position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .tier-brands{flex:1;}
+  .tier:hover{transform:translateY(-8px);box-shadow:0 16px 36px rgba(232,83,31,.16);}
+  .tier::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,var(--orange),var(--orange-soft));
+    transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+  }
+  .tier:hover::before{transform:scaleX(1);}
+  .tier-top{display:flex;justify-content:space-between;align-items:center;}
+  .tier-name{font-weight:800;font-size:17px;}
+  .tier-name .no{color:var(--orange);font-style:italic;margin-right:8px;font-size:13px;}
+  .dots{display:flex;gap:5px;}
+  .dots i{width:7px;height:7px;border-radius:50%;background:var(--orange);opacity:.25;}
+  .dots i.f{opacity:1;}
+  .tier-label{font-size:12px;color:var(--gold);margin-top:16px;letter-spacing:1px;}
+  .tier-brands{font-size:14px;font-weight:600;margin-top:4px;line-height:1.8;}
+  .price{margin-top:20px;display:flex;align-items:baseline;gap:6px;}
+  .price .num{
+    font-size:clamp(34px,4vw,44px);font-weight:900;letter-spacing:-1px;
+    font-variant-numeric:tabular-nums;
+  }
+  .price .unit{font-size:13px;color:var(--ink-soft);}
+  .kv{margin-top:16px;display:block;border-top:1px dashed var(--line);padding-top:12px;}
+  .kv .k{display:block;font-size:12px;color:var(--ink-soft);}
+  .kv .v{display:block;margin-top:2px;font-size:30px;font-weight:900;color:var(--orange);font-variant-numeric:tabular-nums;}
+  .kv .v small{font-size:13px;color:var(--ink-soft);font-weight:400;margin-left:2px;}
+
+  .svc{margin-top:18px;border-top:1px solid var(--line);padding-top:14px;}
+  .svc-title{font-size:13px;font-weight:700;margin-bottom:10px;}
+  .svc-title small{color:var(--ink-soft);font-weight:400;margin-left:6px;}
+  .svc ul{list-style:none;}
+  .svc li{
+    display:flex;justify-content:space-between;gap:10px;
+    font-size:13px;padding:6.5px 8px;border-radius:6px;color:#4A423B;
+    transition:background .2s;
+  }
+  .svc li:hover{background:var(--orange-bg);}
+  .svc li .q{color:var(--orange);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .svc li.hl{background:var(--orange-bg);font-weight:700;}
+  .svc li.hl .q{color:var(--orange);}
+
+  /* ---------- 02 guarantee slider ---------- */
+  .g-card{
+    background:var(--card);border-radius:18px;border:1px solid var(--line);
+    padding:36px 36px 30px;box-shadow:0 4px 18px rgba(120,80,40,.06);
+  }
+  .g-desc{font-size:14px;color:var(--ink-soft);max-width:760px;}
+  .brand-pick{margin:24px 0 6px;}
+  .bp-group{margin-bottom:14px;}
+  .bp-glabel{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:1px;margin-bottom:8px;}
+  .bp-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .kol-scroll{
+    overflow:hidden;cursor:grab;position:relative;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+    touch-action:pan-y;
+  }
+  .kol-scroll.dragging{cursor:grabbing;}
+  .kol-scroll .kol-row{will-change:transform;display:flex;flex-wrap:nowrap;gap:10px;width:max-content;}
+  .kol-scroll .kol-row + .kol-row{margin-top:10px;}
+  .bp{
+    border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+    font-size:13.5px;padding:7px 16px;border-radius:999px;cursor:pointer;
+    font-family:inherit;transition:all .2s;
+  }
+  .bp:hover{border-color:var(--orange);color:var(--orange);}
+  .bp.on{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:600;box-shadow:0 4px 12px rgba(232,83,31,.3);}
+  .g-stat .v .yen{font-size:20px;font-weight:700;margin-right:2px;}
+  .g-stats{display:flex;gap:56px;margin:30px 0 26px;flex-wrap:wrap;}
+  .g-stat .k{font-size:12px;color:var(--ink-soft);letter-spacing:1px;}
+  .g-stat .v{font-size:40px;font-weight:900;font-variant-numeric:tabular-nums;}
+  .g-stat .v small{font-size:14px;font-weight:400;color:var(--ink-soft);}
+  .g-stat.acc .v{color:var(--orange);}
+  .slider-zone{position:relative;padding:0 4px;}
+  input[type=range]{
+    -webkit-appearance:none;width:100%;height:8px;border-radius:99px;
+    background:linear-gradient(90deg,var(--orange) var(--p,60%),#F3E2D3 var(--p,60%));
+    outline:none;cursor:pointer;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;width:24px;height:24px;border-radius:50%;
+    background:#fff;border:5px solid var(--orange);
+    box-shadow:0 3px 10px rgba(232,83,31,.4);cursor:grab;
+  }
+  input[type=range]::-moz-range-thumb{
+    width:14px;height:14px;border-radius:50%;
+    background:#fff;border:5px solid var(--orange);cursor:grab;
+  }
+  .slider-marks{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-soft);margin-top:12px;}
+  .slider-marks b{color:var(--orange);font-size:17px;}
+  .g-note{font-size:15px;font-weight:700;color:var(--ink-soft);margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);}
+  .refund-tip{
+    margin-top:18px;display:inline-block;background:var(--orange-bg);
+    color:var(--orange);font-weight:700;font-size:14px;
+    padding:8px 16px;border-radius:8px;
+    transition:all .2s;
+  }
+
+  /* ---------- 03 process ---------- */
+  .flow-card{
+    background:linear-gradient(180deg,#FDF8F2,#FBF1E7);
+    border:1px solid var(--line);border-radius:16px;
+    padding:30px 34px 40px;
+  }
+  .dept{display:flex;align-items:baseline;gap:14px;margin-bottom:34px;}
+  .dept .nm{font-weight:800;font-size:17px;}
+  .dept .ds{font-size:13.5px;color:var(--ink-soft);}
+  .steps{
+    display:grid;grid-template-columns:repeat(5,1fr);
+    position:relative;
+  }
+  @media(max-width:860px){.steps{grid-template-columns:repeat(2,1fr);gap:28px;}.step:not(:last-child)::after{display:none;}}
+  .step{
+    text-align:center;position:relative;z-index:1;
+    transition:transform .3s;
+  }
+  .step:hover{transform:translateY(-4px);}
+  .step:not(:last-child)::after{
+    content:"→";position:absolute;right:-14px;top:6px;color:var(--orange);
+    font-size:20px;font-weight:800;z-index:2;
+  }
+  .step .idx{
+    width:38px;height:38px;border-radius:50%;
+    border:1.5px solid var(--orange);color:var(--orange);
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;font-weight:700;margin:0 auto 16px;font-style:normal;
+    background:#fff;position:relative;z-index:2;
+  }
+  .step .t{font-weight:800;font-size:15.5px;}
+  .step .s{font-size:12.5px;color:var(--ink-soft);margin-top:8px;}
+
+  /* ---------- 04 resources ---------- */
+  .res-stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:26px;
+  }
+  @media(max-width:860px){.res-stats{grid-template-columns:repeat(2,1fr);}}
+  .res-stat{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:24px 20px;text-align:center;
+    transition:transform .3s,box-shadow .3s;
+  }
+  .res-stat:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(232,83,31,.12);}
+  .res-stat .v{font-size:clamp(28px,3.6vw,40px);font-weight:900;color:var(--orange);font-variant-numeric:tabular-nums;}
+  .res-stat .v small{font-size:15px;font-weight:700;}
+  .res-stat .k{font-size:12.5px;color:var(--ink-soft);margin-top:6px;}
+  .miles{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px;
+  }
+  @media(max-width:860px){.miles{grid-template-columns:repeat(2,1fr);}}
+  .mile{
+    background:linear-gradient(180deg,#FDF8F2,#FBF1E7);
+    border:1px solid var(--line);border-radius:14px;padding:20px 18px;
+  }
+  .mile .y{font-size:22px;font-weight:900;color:var(--orange);font-style:italic;}
+  .mile .t{font-weight:800;font-size:15px;margin-top:6px;}
+  .mile .s{font-size:12.5px;color:var(--ink-soft);margin-top:4px;}
+  .cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px;}
+  @media(max-width:860px){.cap-grid{grid-template-columns:repeat(2,1fr);}}
+  .cap{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 18px;transition:transform .3s,box-shadow .3s;}
+  .cap:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(232,83,31,.12);}
+  .cap .t{font-weight:800;font-size:15.5px;color:var(--ink);}
+  .cap .t::before{content:"✦ ";color:var(--orange);}
+  .cap .s{font-size:13px;color:var(--ink-soft);margin-top:8px;}
+  .kols{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:28px 30px;
+  }
+  .kols-head{font-weight:800;font-size:16px;margin-bottom:16px;}
+  .kol-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .kol{
+    background:var(--orange-bg);color:var(--ink);border-radius:999px;
+    font-size:13px;padding:7px 16px;
+  }
+  .kol b{color:var(--orange);}
+  .kols-note{font-size:12.5px;color:var(--ink-soft);margin-top:14px;}
+
+  /* ---------- 04 phone shots marquee ---------- */
+  .shots{margin-top:40px;}
+  .shots-head{font-weight:800;font-size:16px;margin-bottom:18px;}
+  .shot-scroll{
+    overflow:hidden;cursor:grab;position:relative;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+    touch-action:pan-y;
+  }
+  .shot-scroll.dragging{cursor:grabbing;}
+  .shot-scroll .shot-row{will-change:transform;display:flex;flex-wrap:nowrap;gap:26px;width:max-content;align-items:center;}
+  .shot-scroll .shot-row + .shot-row{margin-top:26px;}
+  .shot-scroll .shot{height:272px;flex:none;margin:0;}
+  .shot-scroll .shot img{height:100%;width:auto;display:block;filter:drop-shadow(0 12px 20px rgba(60,40,20,.14));}
+  @media(max-width:560px){.shot-scroll .shot{height:196px;}.shot-scroll .shot-row + .shot-row{margin-top:18px;}}
+  .gallery-head{font-weight:800;font-size:16px;margin:26px 0 16px;}
+  .gallery{display:flex;flex-direction:column;gap:26px;}
+  .gal-group .gal-title{font-weight:800;font-size:15px;margin-bottom:12px;}
+  .gal-grid{display:grid;gap:12px;}
+  .gal-grid.cols-2{grid-template-columns:repeat(2,1fr);}
+  .gal-grid.cols-4{grid-template-columns:repeat(4,1fr);}
+  .gal-grid.cols-5{grid-template-columns:repeat(5,1fr);}
+  .gal-grid.cols-6{grid-template-columns:repeat(6,1fr);}
+  .gal-grid.cols-7{grid-template-columns:repeat(7,1fr);}
+  @media(max-width:860px){
+    .gal-grid.cols-5,.gal-grid.cols-6,.gal-grid.cols-7{grid-template-columns:repeat(3,1fr);}
+    .gal-grid.cols-4{grid-template-columns:repeat(2,1fr);}
+  }
+  .shot{margin:0;}
+  .shot img{display:block;-webkit-user-drag:none;user-select:none;}
+  #lightbox{
+    position:fixed;inset:0;background:rgba(20,14,10,.82);z-index:200;
+    display:none;align-items:center;justify-content:center;padding:32px;cursor:zoom-out;
+  }
+  #lightbox.on{display:flex;}
+  #lightbox img{max-width:94%;max-height:88vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  #lightbox .lb-cap{position:fixed;bottom:18px;left:0;right:0;text-align:center;color:#fff;font-size:14px;}
+
+  /* ---------- 05 cases ---------- */
+  .case-scroll{
+    overflow:hidden;cursor:grab;position:relative;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+    touch-action:pan-y;
+  }
+  .case-scroll.dragging{cursor:grabbing;}
+  .case-scroll .case-row{will-change:transform;display:flex;flex-wrap:nowrap;gap:16px;width:max-content;}
+  .case-scroll .case-row + .case-row{margin-top:16px;}
+  .case-scroll .case-card{width:340px;flex:none;}
+  @media(max-width:560px){.case-scroll .case-card{width:280px;}}
+  .case-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px 20px 16px;
+    transition:transform .3s,box-shadow .3s;
+  }
+  .case-card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(232,83,31,.13);}
+  .case-card .cc-top{display:flex;align-items:baseline;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:12px;}
+  .case-card .no{color:#C9BBAA;font-style:italic;font-weight:700;font-size:13px;}
+  .case-card .hn{font-size:14px;font-weight:700;line-height:1.4;}
+  .case-card .cc-kv{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;}
+  .case-card .cc-kv .k{font-size:12px;color:var(--ink-soft);}
+  .case-card .cc-kv .v{font-size:24px;font-weight:900;color:var(--orange);font-variant-numeric:tabular-nums;}
+  .case-card .cc-kv.dark .v{color:var(--ink);font-size:18px;font-weight:800;}
+  .case-note{font-size:12.5px;color:var(--ink-soft);margin-top:14px;}
+
+  /* ---------- 05 summary ---------- */
+  .sum-card{
+    display:grid;grid-template-columns:1fr 1.3fr;gap:30px;
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:44px 40px;box-shadow:0 4px 18px rgba(120,80,40,.06);
+  }
+  @media(max-width:760px){.sum-card{grid-template-columns:1fr;}}
+  .sum-l .k,.sum-r .k{font-size:12.5px;color:var(--gold);letter-spacing:2px;font-weight:700;}
+  .sum-l .v{font-size:52px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1.2;}
+  .sum-l .v small{font-size:15px;color:var(--ink-soft);font-weight:400;}
+  .sum-l .d{margin-top:10px;font-size:14px;color:var(--ink-soft);}
+  .sum-l .d b{color:var(--ink);}
+  .sum-r .v{
+    font-size:clamp(30px,4.4vw,44px);font-weight:900;line-height:1.35;
+  }
+  .sum-r .v .plus{color:var(--orange);font-weight:800;margin:0 6px;}
+  .sum-r .d{margin-top:12px;font-size:14px;color:var(--ink-soft);}
+  .sum-r .d b{color:var(--orange);}
+
+  footer{
+    margin-top:80px;text-align:center;padding:44px 0 56px;
+    border-top:1px solid var(--line);
+  }
+  footer .f-logo{width:190px;opacity:.9;}
+
+  /* back to top */
+  #toTop{
+    position:fixed;right:26px;bottom:30px;width:44px;height:44px;border-radius:50%;
+    background:var(--orange);color:#fff;border:none;font-size:18px;cursor:pointer;
+    opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;
+    box-shadow:0 8px 20px rgba(232,83,31,.35);z-index:99;
+  }
+  #toTop.show{opacity:1;pointer-events:auto;}
+  #toTop:hover{transform:translateY(-4px);}
+
+  /* ---------- mobile adapt（仅移动端生效，桌面版不受影响） ---------- */
+  @media(max-width:640px){
+    .wrap{padding:0 18px;}
+    header{padding:24px 0 46px;}
+    /* 品牌区缩小放右上角（绝对定位），不占正文流 */
+    .brandline{position:absolute;right:18px;top:0;text-align:right;margin:0;}
+    .brand-logo{width:96px;margin:0 0 0 auto;}
+    .brand-dept{display:inline-block;font-size:9.5px;letter-spacing:0;white-space:nowrap;margin-top:3px;text-align:right;font-weight:500;transform-origin:100% 50%;}
+    .tag{font-size:16px;padding:8px 18px;letter-spacing:1px;}
+    h1{font-size:clamp(30px,8.6vw,40px);letter-spacing:1px;margin:18px 0 14px;}
+    .badge{font-size:16px;padding:7px 16px;letter-spacing:1px;}
+    .lead{font-size:13.5px;margin-top:22px;}
+    .head-what{margin-top:20px;}
+    .head-what .hw-main{font-size:clamp(25px,6.8vw,34px);}
+    section{padding:46px 0 4px;}
+    .sec-desc{margin-bottom:24px;}
+    .tier{padding:22px 18px;}
+    .g-card{padding:24px 18px 22px;}
+    .g-stats{gap:26px;margin:22px 0 20px;}
+    .g-stat .v{font-size:30px;}
+    /* 滑条两端刻度隐藏，只留中间完成房费/退款一行 */
+    .slider-marks{flex-direction:row;justify-content:center;gap:0;}
+    .slider-marks > span:first-child,
+    .slider-marks #gMax{display:none;}
+    .slider-marks b{font-size:13.5px;}
+    .bp{font-size:12.5px;padding:6px 13px;}
+    .flow-card{padding:22px 18px 30px;}
+    .steps{grid-template-columns:1fr;gap:18px;}
+    .shots{margin-top:30px;}
+    .shots-head,.kols-head{font-size:14.5px;margin-bottom:14px;}
+    .shot-scroll .shot{height:196px;}
+    .shot-scroll .shot-row{gap:18px;}
+    /* 门店案例卡缩小，手机一屏能看全 */
+    .case-scroll .case-card{width:206px;}
+    .case-scroll .case-row{gap:12px;}
+    .case-card{padding:14px 14px 12px;}
+    .case-card .cc-top{gap:0;padding-bottom:8px;}
+    .case-card .hn{font-size:12.5px;line-height:1.45;}
+    .case-card .cc-kv{margin-top:9px;}
+    .case-card .cc-kv .k{font-size:11px;}
+    .case-card .cc-kv .v{font-size:17px;}
+    .case-card .cc-kv.dark .v{font-size:14px;}
+    .qa{padding:17px 16px;}
+    .qa-q{font-size:15.5px;gap:9px;}
+    .qa-no{width:23px;height:23px;font-size:12px;border-radius:7px;}
+    .qa-a{font-size:13.5px;line-height:1.8;}
+    .qa-warn{font-size:12.5px;padding:9px 12px;}
+    footer{margin-top:52px;padding:34px 0 44px;}
+    footer .f-logo{width:150px;}
+    #toTop{right:16px;bottom:20px;width:40px;height:40px;font-size:16px;}
+  }
+  /* 方案1/2/3 改为一屏一卡左右滑动（≤860px 生效：手机+平板/大屏 webview 全覆盖，桌面三列不受影响） */
+  @media(max-width:860px){
+    .tiers{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -18px;padding:0 18px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+    .tier-tip{display:block;}
+    .tiers::-webkit-scrollbar{display:none;}
+    .tier{flex:0 0 100%;scroll-snap-align:center;}
+    /* 横滑容器内关闭渐显延迟，避免滑动时卡片闪透明 */
+    .tiers .rv{opacity:1;transform:none;transition:none;}
+    .tier-dots{display:flex;justify-content:center;align-items:center;gap:7px;margin-top:14px;}
+    .tier-dots span{width:6px;height:6px;border-radius:3px;background:rgba(43,38,34,.18);transition:all .25s;}
+    .tier-dots span.cur{width:20px;background:var(--orange);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap" style="position:relative;z-index:2;">
+    <div class="brandline">
+      <img src="./assets/u21kkTgBz4sU2nfRiGpMgo.png" alt="尚美数智酒店集团" class="brand-logo">
+      <div class="brand-dept">市场中心 · 新媒体营销部</div>
+    </div>
+    <span class="tag rv">一图读懂</span>
+    <h1 class="rv d1">市场营销费·开业包</h1>
+    <div class="rv d2"><span class="badge">这笔钱，到底买到了什么</span></div>
+    <p class="lead rv d3">
+      <b>开业包助你打爆开业声量。</b>
+      开业这件事，不是等人来敲，是生意主动被看见：
+      让客人主动刷到、主动下单、主动转化。
+    </p>
+    <div class="head-what rv d4">
+      <div class="hw-main">保底房费<span class="plus">+</span>门店超高曝光</div>
+      <p class="hw-d">带来 <b>OTA 获取不到</b>的流量。</p>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ================= 01 按品牌分档位 ================= -->
+<section id="s1">
+  <div class="sec-head rv"><span class="sec-no">01</span><h2>按品牌分档位</h2></div>
+  <p class="sec-desc rv tier-tip">滑动查看不同品牌方案</p>
+
+  <div class="tiers">
+    <div class="tier rv d1">
+      <div class="tier-top">
+        <div class="tier-name"><span class="no">01</span>方案1</div>
+        <div class="dots"><i class="f"></i><i class=""></i><i class=""></i></div>
+      </div>
+      <div class="tier-label">适用品牌</div>
+      <div class="tier-brands">尚客优 / 尚客优品 / 尚客优悦 / 骏怡连锁 / 亚悦</div>
+      <div class="tier-label" style="margin-top:18px;">首年费用</div>
+      <div class="price"><span class="num" data-count="8000">0</span><span class="unit">元 / 年</span></div>
+      <div class="kv"><span class="k">房费保底</span><span class="v" data-count="3">0<small>万</small></span></div>
+      <div class="svc">
+        <div class="svc-title">服务内容及交付数量 <small>12 项</small></div>
+        <ul>
+          <li><span>01 抖音门店搭建 + 蓝V账号搭建</span><span class="q">1套</span></li>
+          <li><span>02 抖音POI页面优化</span><span class="q">1次</span></li>
+          <li><span>03 预售产品头图及详情页设计</span><span class="q">1套/款</span></li>
+          <li><span>04 竞品分析与预售券货盘制定</span><span class="q">1份</span></li>
+          <li><span>05 门店话题打造</span><span class="q">1个</span></li>
+          <li><span>06 酒店经营分运营</span></li>
+          <li><span>07 关键词优化与内容标签设置</span></li>
+          <li><span>08 AIGC短视频分发</span><span class="q">20条</span></li>
+          <li><span>09 自有主播孵化与抖音知识培训</span><span class="q">1次</span></li>
+          <li><span>10 生意经数据监测及分析复盘</span><span class="q">1份/月</span></li>
+          <li class="hl"><span>11 短视频达人</span><span class="q">20条</span></li>
+          <li class="hl"><span>12 广告投放</span><span class="q">2,500元</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tier rv d2">
+      <div class="tier-top">
+        <div class="tier-name"><span class="no">02</span>方案2</div>
+        <div class="dots"><i class="f"></i><i class="f"></i><i class=""></i></div>
+      </div>
+      <div class="tier-label">适用品牌</div>
+      <div class="tier-brands">品睿 / 兰欧尚品 / 兰欧 / 鲸喜连连 / 花美时 / 雷神电竞</div>
+      <div class="tier-label" style="margin-top:18px;">首年费用</div>
+      <div class="price"><span class="num" data-count="11000">0</span><span class="unit">元 / 年</span></div>
+      <div class="kv"><span class="k">房费保底</span><span class="v" data-count="5">0<small>万</small></span></div>
+      <div class="svc">
+        <div class="svc-title">服务内容及交付数量 <small>12 项</small></div>
+        <ul>
+          <li><span>01 抖音门店搭建 + 蓝V账号搭建</span><span class="q">1套</span></li>
+          <li><span>02 抖音POI页面优化</span><span class="q">1次</span></li>
+          <li><span>03 预售产品头图及详情页设计</span><span class="q">1套/款</span></li>
+          <li><span>04 竞品分析与预售券货盘制定</span><span class="q">1份</span></li>
+          <li><span>05 门店话题打造</span><span class="q">1个</span></li>
+          <li><span>06 酒店经营分运营</span></li>
+          <li><span>07 关键词优化与内容标签设置</span></li>
+          <li><span>08 AIGC短视频分发</span><span class="q">20条</span></li>
+          <li><span>09 自有主播孵化与抖音知识培训</span><span class="q">1次</span></li>
+          <li><span>10 生意经数据监测及分析复盘</span><span class="q">1份/月</span></li>
+          <li class="hl"><span>11 短视频达人</span><span class="q">30条</span></li>
+          <li class="hl"><span>12 广告投放</span><span class="q">3,500元</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tier rv d3">
+      <div class="tier-top">
+        <div class="tier-name"><span class="no">03</span>方案3</div>
+        <div class="dots"><i class="f"></i><i class="f"></i><i class="f"></i></div>
+      </div>
+      <div class="tier-label">适用品牌</div>
+      <div class="tier-brands">兰欧国际 / 美玥 / 假日美地</div>
+      <div class="tier-label" style="margin-top:18px;">首年费用</div>
+      <div class="price"><span class="num" data-count="20000">0</span><span class="unit">元 / 年</span></div>
+      <div class="kv"><span class="k">房费保底</span><span class="v" data-count="10">0<small>万</small></span></div>
+      <div class="svc">
+        <div class="svc-title">服务内容及交付数量 <small>12 项</small></div>
+        <ul>
+          <li><span>01 抖音门店搭建 + 蓝V账号搭建</span><span class="q">1套</span></li>
+          <li><span>02 抖音POI页面优化</span><span class="q">1次</span></li>
+          <li><span>03 预售产品头图及详情页设计</span><span class="q">1套/款</span></li>
+          <li><span>04 竞品分析与预售券货盘制定</span><span class="q">1份</span></li>
+          <li><span>05 门店话题打造</span><span class="q">1个</span></li>
+          <li><span>06 酒店经营分运营</span></li>
+          <li><span>07 关键词优化与内容标签设置</span></li>
+          <li><span>08 AIGC短视频分发</span><span class="q">20条</span></li>
+          <li><span>09 自有主播孵化与抖音知识培训</span><span class="q">1次</span></li>
+          <li><span>10 生意经数据监测及分析复盘</span><span class="q">1份/月</span></li>
+          <li class="hl"><span>11 短视频达人</span><span class="q">65条</span></li>
+          <li class="hl"><span>12 广告投放</span><span class="q">5,500元</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 房费保底 ================= -->
+<section id="s2">
+  <div class="sec-head rv"><span class="sec-no">02</span><h2>房费保底：没卖到数，按比例退款</h2></div>
+  <p class="sec-desc rv">拖动滑块试试——保障比例实时换算应退金额。</p>
+
+  <div class="g-card rv d1">
+    <div class="brand-pick" id="brandPick"></div>
+    <div class="g-stats">
+      <div class="g-stat">
+        <div class="k">营销费金额</div>
+        <div class="v">¥<span id="gFee">8,000</span></div>
+      </div>
+      <div class="g-stat">
+        <div class="k">保底房费</div>
+        <div class="v"><span id="gAmt">3</span><small> 万</small></div>
+      </div>
+    </div>
+    <div class="slider-zone">
+      <input type="range" id="gSlider" min="0" max="30000" value="30000" step="100">
+      <div class="slider-marks">
+        <span>0 元</span>
+        <b>完成房费：<span id="gDone">30,000</span> 元 ｜ 按比例退款：<span id="gRefund">0</span> 元</b>
+        <span id="gMax">30,000 元</span>
+      </div>
+    </div>
+    <p class="g-note">房费数据在抖音来客 - 生意经数据后台可实时查看完成情况</p>
+  </div>
+</section>
+
+<!-- ================= 03 集团自运营 ================= -->
+<section id="s3">
+  <div class="sec-head rv"><span class="sec-no">03</span><h2>集团自运营，不外包</h2></div>
+  <p class="sec-desc rv">由集团直属团队执行，全程可控。</p>
+
+  <div class="flow-card rv d1">
+    <div class="dept">
+      <span class="nm">新媒体营销部</span>
+      <span class="ds">负责开业期抖音营销的准备与交付</span>
+    </div>
+    <div class="steps">
+    <div class="step rv d1"><div class="idx">1</div><div class="t">上报门店信息</div><div class="s">城区总 · 开业前 1 个月</div></div>
+    <div class="step rv d2"><div class="idx">2</div><div class="t">接收信息</div><div class="s">新媒体商务经理</div></div>
+    <div class="step rv d3"><div class="idx">3</div><div class="t">拉代运营群并对接店长</div><div class="s">接收信息后</div></div>
+    <div class="step rv d4"><div class="idx">4</div><div class="t">准备预售动作</div><div class="s">前 7 天</div></div>
+    <div class="step rv d4"><div class="idx">5</div><div class="t">开售及交付</div><div class="s">正式开业</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 服务能力 / 营销资源 ================= -->
+<section id="s4">
+  <div class="sec-head rv"><span class="sec-no">04</span><h2>集团资源全部开放</h2></div>
+
+  <div class="kols rv">
+    <div class="kols-head">集团达人资源库（部分展示）</div>
+    <div class="kol-scroll" id="kolScroll">
+      <div class="kol-row" data-row="0">
+        <span class="kol">米莱 <b>LV6</b> <b>43.04万</b> 粉</span>
+        <span class="kol">小哲哥 <b>LV7</b> <b>33.51万</b> 粉</span>
+        <span class="kol">六杉一 <b>LV7</b> <b>16.15万</b> 粉</span>
+        <span class="kol">大头叔叔 <b>LV8</b> <b>44.39万</b> 粉</span>
+        <span class="kol">巴斯光杰 <b>LV6</b> <b>25.87万</b> 粉</span>
+        <span class="kol">扬扬来了 <b>LV6</b> <b>18.84万</b> 粉</span>
+        <span class="kol">探店成都 <b>LV7</b> <b>16.82万</b> 粉</span>
+        <span class="kol">呕吼新疆 <b>LV7</b> <b>15.47万</b> 粉</span>
+        <span class="kol">Daisy <b>LV6</b> <b>39.56万</b> 粉</span>
+        <span class="kol">矿产金老板 <b>LV7</b> <b>33.71万</b> 粉</span>
+        <span class="kol">敏宇叹世界 <b>LV6</b> <b>27.55万</b> 粉</span>
+        <span class="kol">燕子旅行记 <b>LV7</b> <b>22.2万</b> 粉</span>
+        <span class="kol">遛娃在北京 <b>LV8</b> <b>17.64万</b> 粉</span>
+        <span class="kol">辛小仙 <b>LV5</b> <b>42.05万</b> 粉</span>
+        <span class="kol">探开封 <b>LV5</b> <b>29.4万</b> 粉</span>
+        <span class="kol">潮儿🍓 <b>LV5</b> <b>21.25万</b> 粉</span>
+        <span class="kol">杨娃娃 <b>LV5</b> <b>15.21万</b> 粉</span>
+        <span class="kol">赵无眠 <b>LV5</b> <b>13.35万</b> 粉</span>
+        <span class="kol">姣姣🥝 <b>LV5</b> <b>10.74万</b> 粉</span>
+        <span class="kol">岛城日记 <b>LV5</b> <b>41.68万</b> 粉</span>
+        <span class="kol">饿魔老张 <b>LV5</b> <b>32.02万</b> 粉</span>
+        <span class="kol">福州拍拍 <b>LV5</b> <b>22.14万</b> 粉</span>
+        <span class="kol">杨哥探旅 <b>LV5</b> <b>13.45万</b> 粉</span>
+        <span class="kol">大胃小米 <b>LV5</b> <b>12.74万</b> 粉</span>
+        <span class="kol">圆脸小乖 <b>LV6</b> <b>12.33万</b> 粉</span>
+        <span class="kol" aria-hidden="true">米莱 <b>LV6</b> <b>43.04万</b> 粉</span>
+        <span class="kol" aria-hidden="true">小哲哥 <b>LV7</b> <b>33.51万</b> 粉</span>
+        <span class="kol" aria-hidden="true">六杉一 <b>LV7</b> <b>16.15万</b> 粉</span>
+        <span class="kol" aria-hidden="true">大头叔叔 <b>LV8</b> <b>44.39万</b> 粉</span>
+        <span class="kol" aria-hidden="true">巴斯光杰 <b>LV6</b> <b>25.87万</b> 粉</span>
+        <span class="kol" aria-hidden="true">扬扬来了 <b>LV6</b> <b>18.84万</b> 粉</span>
+        <span class="kol" aria-hidden="true">探店成都 <b>LV7</b> <b>16.82万</b> 粉</span>
+        <span class="kol" aria-hidden="true">呕吼新疆 <b>LV7</b> <b>15.47万</b> 粉</span>
+        <span class="kol" aria-hidden="true">Daisy <b>LV6</b> <b>39.56万</b> 粉</span>
+        <span class="kol" aria-hidden="true">矿产金老板 <b>LV7</b> <b>33.71万</b> 粉</span>
+        <span class="kol" aria-hidden="true">敏宇叹世界 <b>LV6</b> <b>27.55万</b> 粉</span>
+        <span class="kol" aria-hidden="true">燕子旅行记 <b>LV7</b> <b>22.2万</b> 粉</span>
+        <span class="kol" aria-hidden="true">遛娃在北京 <b>LV8</b> <b>17.64万</b> 粉</span>
+        <span class="kol" aria-hidden="true">辛小仙 <b>LV5</b> <b>42.05万</b> 粉</span>
+        <span class="kol" aria-hidden="true">探开封 <b>LV5</b> <b>29.4万</b> 粉</span>
+        <span class="kol" aria-hidden="true">潮儿🍓 <b>LV5</b> <b>21.25万</b> 粉</span>
+        <span class="kol" aria-hidden="true">杨娃娃 <b>LV5</b> <b>15.21万</b> 粉</span>
+        <span class="kol" aria-hidden="true">赵无眠 <b>LV5</b> <b>13.35万</b> 粉</span>
+        <span class="kol" aria-hidden="true">姣姣🥝 <b>LV5</b> <b>10.74万</b> 粉</span>
+        <span class="kol" aria-hidden="true">岛城日记 <b>LV5</b> <b>41.68万</b> 粉</span>
+        <span class="kol" aria-hidden="true">饿魔老张 <b>LV5</b> <b>32.02万</b> 粉</span>
+        <span class="kol" aria-hidden="true">福州拍拍 <b>LV5</b> <b>22.14万</b> 粉</span>
+        <span class="kol" aria-hidden="true">杨哥探旅 <b>LV5</b> <b>13.45万</b> 粉</span>
+        <span class="kol" aria-hidden="true">大胃小米 <b>LV5</b> <b>12.74万</b> 粉</span>
+        <span class="kol" aria-hidden="true">圆脸小乖 <b>LV6</b> <b>12.33万</b> 粉</span>
+      </div>
+      <div class="kol-row" data-row="1">
+        <span class="kol">微姐 <b>LV8</b> <b>33.11万</b> 粉</span>
+        <span class="kol">花生豆 <b>LV8</b> <b>28.11万</b> 粉</span>
+        <span class="kol">阿七🌈 <b>LV6</b> <b>15.97万</b> 粉</span>
+        <span class="kol">吃住成都 <b>LV6</b> <b>32.54万</b> 粉</span>
+        <span class="kol">上海腔调 <b>LV7</b> <b>22.94万</b> 粉</span>
+        <span class="kol">最美成都 <b>LV7</b> <b>18.02万</b> 粉</span>
+        <span class="kol">青岛海神 <b>LV6</b> <b>16.72万</b> 粉</span>
+        <span class="kol">游仙er <b>LV7</b> <b>15.25万</b> 粉</span>
+        <span class="kol">VV超爱玩 <b>LV6</b> <b>38.36万</b> 粉</span>
+        <span class="kol">小海在四川 <b>LV6</b> <b>33.53万</b> 粉</span>
+        <span class="kol">喂·一八三 <b>LV6</b> <b>25.67万</b> 粉</span>
+        <span class="kol">楠楠真好吃 <b>LV7</b> <b>22.18万</b> 粉</span>
+        <span class="kol">老王爱遛娃 <b>LV8</b> <b>17.51万</b> 粉</span>
+        <span class="kol">夏同学 <b>LV5</b> <b>40.11万</b> 粉</span>
+        <span class="kol">大信阳 <b>LV5</b> <b>25.04万</b> 粉</span>
+        <span class="kol">锁子哥 <b>LV5</b> <b>19.82万</b> 粉</span>
+        <span class="kol">大璐璐 <b>LV6</b> <b>14.8万</b> 粉</span>
+        <span class="kol">许圆润 <b>LV5</b> <b>13.07万</b> 粉</span>
+        <span class="kol">鹿满满 <b>LV5</b> <b>10.17万</b> 粉</span>
+        <span class="kol">青岛日记 <b>LV5</b> <b>35.71万</b> 粉</span>
+        <span class="kol">青岛蓝湾 <b>LV5</b> <b>28.77万</b> 粉</span>
+        <span class="kol">晋见大同 <b>LV5</b> <b>19.96万</b> 粉</span>
+        <span class="kol">光头神探 <b>LV5</b> <b>13.31万</b> 粉</span>
+        <span class="kol">白牡丹🌹 <b>LV6</b> <b>12.66万</b> 粉</span>
+        <span class="kol">遇见昆山 <b>LV6</b> <b>12.29万</b> 粉</span>
+        <span class="kol" aria-hidden="true">微姐 <b>LV8</b> <b>33.11万</b> 粉</span>
+        <span class="kol" aria-hidden="true">花生豆 <b>LV8</b> <b>28.11万</b> 粉</span>
+        <span class="kol" aria-hidden="true">阿七🌈 <b>LV6</b> <b>15.97万</b> 粉</span>
+        <span class="kol" aria-hidden="true">吃住成都 <b>LV6</b> <b>32.54万</b> 粉</span>
+        <span class="kol" aria-hidden="true">上海腔调 <b>LV7</b> <b>22.94万</b> 粉</span>
+        <span class="kol" aria-hidden="true">最美成都 <b>LV7</b> <b>18.02万</b> 粉</span>
+        <span class="kol" aria-hidden="true">青岛海神 <b>LV6</b> <b>16.72万</b> 粉</span>
+        <span class="kol" aria-hidden="true">游仙er <b>LV7</b> <b>15.25万</b> 粉</span>
+        <span class="kol" aria-hidden="true">VV超爱玩 <b>LV6</b> <b>38.36万</b> 粉</span>
+        <span class="kol" aria-hidden="true">小海在四川 <b>LV6</b> <b>33.53万</b> 粉</span>
+        <span class="kol" aria-hidden="true">喂·一八三 <b>LV6</b> <b>25.67万</b> 粉</span>
+        <span class="kol" aria-hidden="true">楠楠真好吃 <b>LV7</b> <b>22.18万</b> 粉</span>
+        <span class="kol" aria-hidden="true">老王爱遛娃 <b>LV8</b> <b>17.51万</b> 粉</span>
+        <span class="kol" aria-hidden="true">夏同学 <b>LV5</b> <b>40.11万</b> 粉</span>
+        <span class="kol" aria-hidden="true">大信阳 <b>LV5</b> <b>25.04万</b> 粉</span>
+        <span class="kol" aria-hidden="true">锁子哥 <b>LV5</b> <b>19.82万</b> 粉</span>
+        <span class="kol" aria-hidden="true">大璐璐 <b>LV6</b> <b>14.8万</b> 粉</span>
+        <span class="kol" aria-hidden="true">许圆润 <b>LV5</b> <b>13.07万</b> 粉</span>
+        <span class="kol" aria-hidden="true">鹿满满 <b>LV5</b> <b>10.17万</b> 粉</span>
+        <span class="kol" aria-hidden="true">青岛日记 <b>LV5</b> <b>35.71万</b> 粉</span>
+        <span class="kol" aria-hidden="true">青岛蓝湾 <b>LV5</b> <b>28.77万</b> 粉</span>
+        <span class="kol" aria-hidden="true">晋见大同 <b>LV5</b> <b>19.96万</b> 粉</span>
+        <span class="kol" aria-hidden="true">光头神探 <b>LV5</b> <b>13.31万</b> 粉</span>
+        <span class="kol" aria-hidden="true">白牡丹🌹 <b>LV6</b> <b>12.66万</b> 粉</span>
+        <span class="kol" aria-hidden="true">遇见昆山 <b>LV6</b> <b>12.29万</b> 粉</span>
+      </div>
+      <div class="kol-row" data-row="2">
+        <span class="kol">夜峰 <b>LV7</b> <b>30.69万</b> 粉</span>
+        <span class="kol">班尼蛋 <b>LV6</b> <b>25.96万</b> 粉</span>
+        <span class="kol">发喽密 <b>LV6</b> <b>15.24万</b> 粉</span>
+        <span class="kol">爱看苏州 <b>LV6</b> <b>32.03万</b> 粉</span>
+        <span class="kol">游玩惠州 <b>LV7</b> <b>22.56万</b> 粉</span>
+        <span class="kol">郑在创业 <b>LV6</b> <b>17.92万</b> 粉</span>
+        <span class="kol">王小白啊 <b>LV6</b> <b>16.14万</b> 粉</span>
+        <span class="kol">爱逛苏州 <b>LV6</b> <b>15.22万</b> 粉</span>
+        <span class="kol">大掌柜优选 <b>LV6</b> <b>34.4万</b> 粉</span>
+        <span class="kol">晨哥了不得 <b>LV8</b> <b>32.36万</b> 粉</span>
+        <span class="kol">甜沫漫游记 <b>LV6</b> <b>25.49万</b> 粉</span>
+        <span class="kol">章鱼哥饿了 <b>LV7</b> <b>21.17万</b> 粉</span>
+        <span class="kol">美扛 <b>LV5</b> <b>48.45万</b> 粉</span>
+        <span class="kol">花无缺 <b>LV5</b> <b>39.92万</b> 粉</span>
+        <span class="kol">探天津 <b>LV5</b> <b>24.78万</b> 粉</span>
+        <span class="kol">李酒酒 <b>LV5</b> <b>18.16万</b> 粉</span>
+        <span class="kol">扬扬吖 <b>LV6</b> <b>14.62万</b> 粉</span>
+        <span class="kol">太阳、 <b>LV6</b> <b>12.83万</b> 粉</span>
+        <span class="kol">小🐷🐷 <b>LV6</b> <b>10.13万</b> 粉</span>
+        <span class="kol">是喜喜呀 <b>LV5</b> <b>34.34万</b> 粉</span>
+        <span class="kol">楠楠民宿 <b>LV5</b> <b>27.95万</b> 粉</span>
+        <span class="kol">无锡团购 <b>LV8</b> <b>14.63万</b> 粉</span>
+        <span class="kol">海南华仔 <b>LV7</b> <b>13.19万</b> 粉</span>
+        <span class="kol">大杨小薇 <b>LV5</b> <b>12.53万</b> 粉</span>
+        <span class="kol">柯楠甄选 <b>LV5</b> <b>12.14万</b> 粉</span>
+        <span class="kol" aria-hidden="true">夜峰 <b>LV7</b> <b>30.69万</b> 粉</span>
+        <span class="kol" aria-hidden="true">班尼蛋 <b>LV6</b> <b>25.96万</b> 粉</span>
+        <span class="kol" aria-hidden="true">发喽密 <b>LV6</b> <b>15.24万</b> 粉</span>
+        <span class="kol" aria-hidden="true">爱看苏州 <b>LV6</b> <b>32.03万</b> 粉</span>
+        <span class="kol" aria-hidden="true">游玩惠州 <b>LV7</b> <b>22.56万</b> 粉</span>
+        <span class="kol" aria-hidden="true">郑在创业 <b>LV6</b> <b>17.92万</b> 粉</span>
+        <span class="kol" aria-hidden="true">王小白啊 <b>LV6</b> <b>16.14万</b> 粉</span>
+        <span class="kol" aria-hidden="true">爱逛苏州 <b>LV6</b> <b>15.22万</b> 粉</span>
+        <span class="kol" aria-hidden="true">大掌柜优选 <b>LV6</b> <b>34.4万</b> 粉</span>
+        <span class="kol" aria-hidden="true">晨哥了不得 <b>LV8</b> <b>32.36万</b> 粉</span>
+        <span class="kol" aria-hidden="true">甜沫漫游记 <b>LV6</b> <b>25.49万</b> 粉</span>
+        <span class="kol" aria-hidden="true">章鱼哥饿了 <b>LV7</b> <b>21.17万</b> 粉</span>
+        <span class="kol" aria-hidden="true">美扛 <b>LV5</b> <b>48.45万</b> 粉</span>
+        <span class="kol" aria-hidden="true">花无缺 <b>LV5</b> <b>39.92万</b> 粉</span>
+        <span class="kol" aria-hidden="true">探天津 <b>LV5</b> <b>24.78万</b> 粉</span>
+        <span class="kol" aria-hidden="true">李酒酒 <b>LV5</b> <b>18.16万</b> 粉</span>
+        <span class="kol" aria-hidden="true">扬扬吖 <b>LV6</b> <b>14.62万</b> 粉</span>
+        <span class="kol" aria-hidden="true">太阳、 <b>LV6</b> <b>12.83万</b> 粉</span>
+        <span class="kol" aria-hidden="true">小🐷🐷 <b>LV6</b> <b>10.13万</b> 粉</span>
+        <span class="kol" aria-hidden="true">是喜喜呀 <b>LV5</b> <b>34.34万</b> 粉</span>
+        <span class="kol" aria-hidden="true">楠楠民宿 <b>LV5</b> <b>27.95万</b> 粉</span>
+        <span class="kol" aria-hidden="true">无锡团购 <b>LV8</b> <b>14.63万</b> 粉</span>
+        <span class="kol" aria-hidden="true">海南华仔 <b>LV7</b> <b>13.19万</b> 粉</span>
+        <span class="kol" aria-hidden="true">大杨小薇 <b>LV5</b> <b>12.53万</b> 粉</span>
+        <span class="kol" aria-hidden="true">柯楠甄选 <b>LV5</b> <b>12.14万</b> 粉</span>
+      </div>
+      <div class="kol-row" data-row="3">
+        <span class="kol">钱夫 <b>LV8</b> <b>24.3万</b> 粉</span>
+        <span class="kol">贾老板 <b>LV6</b> <b>20.23万</b> 粉</span>
+        <span class="kol">沈百万 <b>LV7</b> <b>15.01万</b> 粉</span>
+        <span class="kol">再来一婷 <b>LV6</b> <b>28.88万</b> 粉</span>
+        <span class="kol">黄山景川 <b>LV6</b> <b>22.5万</b> 粉</span>
+        <span class="kol">倩倩旅行 <b>LV8</b> <b>17.84万</b> 粉</span>
+        <span class="kol">宗介日志 <b>LV7</b> <b>16.03万</b> 粉</span>
+        <span class="kol">椰子放假了 <b>LV7</b> <b>46.45万</b> 粉</span>
+        <span class="kol">环球大玩家 <b>LV7</b> <b>34.3万</b> 粉</span>
+        <span class="kol">大国耐会会 <b>LV8</b> <b>30.57万</b> 粉</span>
+        <span class="kol">想瘦的小暖 <b>LV8</b> <b>23.67万</b> 粉</span>
+        <span class="kol">粽子妈妈🐷 <b>LV6</b> <b>19.43万</b> 粉</span>
+        <span class="kol">叨刀 <b>LV5</b> <b>16.01万</b> 粉</span>
+        <span class="kol">李寻迹 <b>LV5</b> <b>31.22万</b> 粉</span>
+        <span class="kol">孟美乐 <b>LV5</b> <b>23万</b> 粉</span>
+        <span class="kol">九门儿 <b>LV5</b> <b>16.91万</b> 粉</span>
+        <span class="kol">汐曾子 <b>LV6</b> <b>13.39万</b> 粉</span>
+        <span class="kol">小雅子 <b>LV6</b> <b>10.77万</b> 粉</span>
+        <span class="kol">苹姐姐 <b>LV5</b> <b>10.03万</b> 粉</span>
+        <span class="kol">满级小象 <b>LV5</b> <b>33.47万</b> 粉</span>
+        <span class="kol">小野鹿子 <b>LV5</b> <b>26.42万</b> 粉</span>
+        <span class="kol">浅香探旅 <b>LV6</b> <b>13.53万</b> 粉</span>
+        <span class="kol">塔卡日记 <b>LV6</b> <b>12.96万</b> 粉</span>
+        <span class="kol">与洲同行 <b>LV7</b> <b>12.34万</b> 粉</span>
+        <span class="kol">周周学长 <b>LV5</b> <b>12.07万</b> 粉</span>
+        <span class="kol" aria-hidden="true">钱夫 <b>LV8</b> <b>24.3万</b> 粉</span>
+        <span class="kol" aria-hidden="true">贾老板 <b>LV6</b> <b>20.23万</b> 粉</span>
+        <span class="kol" aria-hidden="true">沈百万 <b>LV7</b> <b>15.01万</b> 粉</span>
+        <span class="kol" aria-hidden="true">再来一婷 <b>LV6</b> <b>28.88万</b> 粉</span>
+        <span class="kol" aria-hidden="true">黄山景川 <b>LV6</b> <b>22.5万</b> 粉</span>
+        <span class="kol" aria-hidden="true">倩倩旅行 <b>LV8</b> <b>17.84万</b> 粉</span>
+        <span class="kol" aria-hidden="true">宗介日志 <b>LV7</b> <b>16.03万</b> 粉</span>
+        <span class="kol" aria-hidden="true">椰子放假了 <b>LV7</b> <b>46.45万</b> 粉</span>
+        <span class="kol" aria-hidden="true">环球大玩家 <b>LV7</b> <b>34.3万</b> 粉</span>
+        <span class="kol" aria-hidden="true">大国耐会会 <b>LV8</b> <b>30.57万</b> 粉</span>
+        <span class="kol" aria-hidden="true">想瘦的小暖 <b>LV8</b> <b>23.67万</b> 粉</span>
+        <span class="kol" aria-hidden="true">粽子妈妈🐷 <b>LV6</b> <b>19.43万</b> 粉</span>
+        <span class="kol" aria-hidden="true">叨刀 <b>LV5</b> <b>16.01万</b> 粉</span>
+        <span class="kol" aria-hidden="true">李寻迹 <b>LV5</b> <b>31.22万</b> 粉</span>
+        <span class="kol" aria-hidden="true">孟美乐 <b>LV5</b> <b>23万</b> 粉</span>
+        <span class="kol" aria-hidden="true">九门儿 <b>LV5</b> <b>16.91万</b> 粉</span>
+        <span class="kol" aria-hidden="true">汐曾子 <b>LV6</b> <b>13.39万</b> 粉</span>
+        <span class="kol" aria-hidden="true">小雅子 <b>LV6</b> <b>10.77万</b> 粉</span>
+        <span class="kol" aria-hidden="true">苹姐姐 <b>LV5</b> <b>10.03万</b> 粉</span>
+        <span class="kol" aria-hidden="true">满级小象 <b>LV5</b> <b>33.47万</b> 粉</span>
+        <span class="kol" aria-hidden="true">小野鹿子 <b>LV5</b> <b>26.42万</b> 粉</span>
+        <span class="kol" aria-hidden="true">浅香探旅 <b>LV6</b> <b>13.53万</b> 粉</span>
+        <span class="kol" aria-hidden="true">塔卡日记 <b>LV6</b> <b>12.96万</b> 粉</span>
+        <span class="kol" aria-hidden="true">与洲同行 <b>LV7</b> <b>12.34万</b> 粉</span>
+        <span class="kol" aria-hidden="true">周周学长 <b>LV5</b> <b>12.07万</b> 粉</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="shots rv">
+    <div class="shots-head">达人短视频案例（部分展示）</div>
+    <div class="shot-scroll" id="shotScroll"></div>
+  </div>
+
+  <div class="shots rv">
+    <div class="shots-head">直播案例（部分展示）</div>
+    <div class="shot-scroll" id="liveScroll"></div>
+  </div>
+
+</section>
+
+<!-- ================= 05 买过开业包的店都说好 ================= -->
+<section id="s5">
+  <div class="sec-head rv"><span class="sec-no">05</span><h2>买过开业包的店都说好</h2></div>
+  <p class="sec-desc rv">以下门店为使用营销包后获得的真实数据。</p>
+
+  <div id="caseArea"></div>
+</section>
+
+<!-- ================= 06 其它QA ================= -->
+<section id="s6">
+  <div class="sec-head rv"><span class="sec-no">06</span><h2>其它QA</h2></div>
+  <p class="sec-desc rv">合作过程中常见问题的统一说明。</p>
+
+  <div class="qa-list">
+    <div class="qa rv d1">
+      <div class="qa-q"><span class="qa-no">1</span>收费方式</div>
+      <p class="qa-a">本费用为年度营销费，采取首月一次性清分收取；若清分金额不足，款项分 3-4 月分批清分。</p>
+    </div>
+    <div class="qa rv d2">
+      <div class="qa-q"><span class="qa-no">2</span>保底政策</div>
+      <p class="qa-a">各品牌对应设有抖音系渠道房费保底额度。自门店费用清分之日起一年内，若门店房费未达到保底金额，将按照实际完成与保底额度的比例进行退款。</p>
+    </div>
+    <div class="qa rv d3">
+      <div class="qa-q"><span class="qa-no">3</span>渠道绑定约定</div>
+      <p class="qa-a">门店抖音系渠道必须走集团直连，若门店私自线下或另行合作外部第三方服务商，我方有权终止服务交付，且不予办理退费。</p>
+      <p class="qa-warn">⚠️ 若门店提前开业系统未对接且着急营销，开业 1-2 月可豁免直连优先线下运营，但仅限集团官方服务商运营，第三个月必须回归直连。</p>
+    </div>
+    <div class="qa rv d1">
+      <div class="qa-q"><span class="qa-no">4</span>交付验收规则</div>
+      <p class="qa-a">营销包内容全部交付完成后，我方需整理交付清单，清单包含资源包完成情况、抖音渠道房费数据，将通过签约备案邮箱或微信发送交付清单，清单发出即视为本次服务交付完成，双方予以确认。</p>
+    </div>
+    <div class="qa rv d2">
+      <div class="qa-q"><span class="qa-no">5</span>次年续约约定</div>
+      <p class="qa-a">门店续约严格按照本合同约定的资源包内容执行新一轮营销交付，服务费依旧采用清分模式收取（依然正常按比例保底）。</p>
+    </div>
+    <div class="qa rv d3">
+      <div class="qa-q"><span class="qa-no">6</span>资源追加</div>
+      <p class="qa-a">本合同默认包含对应品牌基础资源包；业主方如有额外营销需求，可联系城区总另行追加资源。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 一页说清（已并入页首） ================= -->
+
+</div><!-- /wrap -->
+
+<footer>
+  <img src="./assets/u21kkTgBz4sU2nfRiGpMgo.png" alt="尚美数智酒店集团" class="f-logo">
+</footer>
+
+<button id="toTop" title="回到顶部">↑</button>
+
+<script>const SHOT_URLS={"live_890":"./assets/uGEeYCLaVITwPLFi1qpZFB.webp","live_891":"./assets/fpz8F3iB4IJP3gi5qMllYw.webp","live_892":"./assets/mDu90fPXEVEsCihm85vqCS.webp","live_893":"./assets/haHjox26kE8jQSSSlOAuo9.webp","live_894":"./assets/w68EkU60is4Tx4M7Z0DvdQ.webp","live_895":"./assets/65HhbmjDnnUKzDoKzIeLRn.webp","live_896":"./assets/4kUKh9jZcvIywiPs8ngRhb.webp","live_897":"./assets/ojuz3768A6nvIdmMX1AIdb.webp","live_898":"./assets/FiYiqo73pWAogNqr1VC5XD.webp","live_899":"./assets/T2UYTiUSIgr2gGPQLFdmyg.webp","live_900":"./assets/qjDbJm7iWbxr2LAeirLVgr.webp","phone_901":"./assets/vXdQcyyvaG6sQD9AyKs8xx.webp","phone_902":"./assets/HnQ1GMkZz6mU65YJTGAA33.webp","phone_903":"./assets/vYL7QDaGUtx2g4wvJaHvlw.webp","phone_904":"./assets/9cse8ROvkKZkCcTCGheWxD.webp","phone_905":"./assets/gbnRw4iVT52JQ0HIqVCYKR.webp","phone_906":"./assets/SJrZSLZXFrWsyMfWWN8Tdr.webp","phone_907":"./assets/VA68khgK8oeWCGaQajB6x1.webp","phone_908":"./assets/3jJZEJ2PQLbJnJ1nnTJhiy.webp","phone_909":"./assets/BnyYyabA6UnQZTHE7zGjkP.webp","phone_910":"./assets/HPwZVi5Lpd7Duutql5wPjh.webp","phone_911":"./assets/WuwmNLeAmR1kCnop9vXFzx.webp","phone_912":"./assets/7mx09gn48H4rRwZB9N3WGs.webp","phone_913":"./assets/Nf2C0Ka5mBvZG8JPMbmZCg.webp","phone_914":"./assets/VB7TyBowsAIx1QaTrQJyE6.webp"};</script>
+<script>
+/* ---------- scroll reveal ---------- */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ---------- animated counters ---------- */
+function animateCount(el){
+  const target = parseFloat(el.dataset.count);
+  const hasSmall = el.querySelector('small');
+  const small = hasSmall ? hasSmall.outerHTML : '';
+  const dur = 1200, t0 = performance.now();
+  function frame(t){
+    const p = Math.min((t-t0)/dur,1);
+    const ease = 1-Math.pow(1-p,3);
+    const val = target*ease;
+    el.innerHTML = (target>=1000 ? Math.round(val).toLocaleString() : (target%1? val.toFixed(1): Math.round(val))) + small;
+    if(p<1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+const cio = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ animateCount(e.target); cio.unobserve(e.target);} });
+},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* ---------- brand selector + guarantee slider ---------- */
+const brandGroups=[
+  {g:'中高端酒店', items:[{b:'兰欧国际酒店',fee:20000,floor:10}]},
+  {g:'中端酒店', items:[
+    {b:'品睿酒店',fee:11000,floor:5},
+    {b:'兰欧尚品酒店',fee:11000,floor:5},
+    {b:'兰欧酒店',fee:11000,floor:5},
+    {b:'假日美地酒店',fee:20000,floor:10},
+    {b:'美玥酒店',fee:20000,floor:10},
+    {b:'尚客优品酒店',fee:8000,floor:3},
+  ]},
+  {g:'经济型酒店', items:[
+    {b:'尚客优酒店',fee:8000,floor:3},
+    {b:'亚悦酒店',fee:8000,floor:3},
+    {b:'骏怡酒店',fee:8000,floor:3},
+  ]},
+  {g:'生活方式酒店', items:[
+    {b:'尚客优悦酒店',fee:8000,floor:3},
+    {b:'鲸喜连连酒店',fee:11000,floor:5},
+    {b:'花美时酒店',fee:11000,floor:5},
+    {b:'雷神电竞酒店',fee:11000,floor:5},
+  ]},
+];
+const pick=document.getElementById('brandPick');
+const slider=document.getElementById('gSlider');
+let curFee=8000, curFloor=3;
+brandGroups.forEach(gr=>{
+  const gl=document.createElement('div');
+  gl.className='bp-group';
+  gl.innerHTML=`<div class="bp-glabel">${gr.g}</div>`;
+  const row=document.createElement('div');
+  row.className='bp-row';
+  gr.items.forEach((it,i)=>{
+    const btn=document.createElement('button');
+    btn.className='bp'+(gr.g==='经济型酒店'&&i===0?' on':'');
+    btn.textContent=it.b;
+    btn.addEventListener('click',()=>{
+      pick.querySelectorAll('.bp').forEach(x=>x.classList.remove('on'));
+      btn.classList.add('on');
+      curFee=it.fee; curFloor=it.floor;
+      document.getElementById('gFee').textContent=it.fee.toLocaleString();
+      document.getElementById('gAmt').textContent=it.floor;
+      resetSlider();
+    });
+    row.appendChild(btn);
+  });
+  gl.appendChild(row);
+  pick.appendChild(gl);
+});
+function updateGuarantee(){
+  const done=+slider.value;                 // 完成房费（元）
+  const max=+slider.max;
+  slider.style.setProperty('--p',(done/max*100)+'%');
+  document.getElementById('gDone').textContent=done.toLocaleString();
+  // 退款 = 营销费 × (保底房费 − 完成房费) / 保底房费，完成全额→退0
+  document.getElementById('gRefund').textContent=Math.round(curFee*(max-done)/max).toLocaleString();
+}
+slider.addEventListener('input',updateGuarantee);
+function resetSlider(){
+  slider.max=curFloor*10000;
+  slider.value=slider.max;
+  document.getElementById('gMax').textContent=slider.max.toLocaleString()+' 元';
+  updateGuarantee();
+}
+resetSlider();
+
+/* ---------- case data ---------- */
+const cases=[
+  {name:'兰欧·尚品酒店(哈尔滨火车站中央大街省博物馆地铁站店)',he:'32.34万',exp:'109.1万'},
+  {name:'兰欧国际酒店(五四广场延安三路店)',he:'26.27万',exp:'35万'},
+  {name:'兰欧酒店呼和浩特大昭寺店',he:'19.28万',exp:'71.76万'},
+  {name:'亚悦酒店(重庆解放碑洪崖洞店)',he:'18.2万',exp:'2.46万'},
+  {name:'花美时武汉同济医院武胜路地铁站店',he:'17.33万',exp:'44.1万'},
+  {name:'兰欧尚品大同云冈石窟酒店',he:'16.96万',exp:'172.34万'},
+  {name:'海南陵水品睿酒店',he:'15.27万',exp:'91.9万'},
+  {name:'青岛尚美雅高瑞享酒店',he:'14.61万',exp:'24.44万'},
+  {name:'临沂兰欧国际酒店',he:'14.25万',exp:'10.11万'},
+  {name:'尚客优大同古城酒店',he:'12.26万',exp:'38.72万'},
+  {name:'烟台金沙滩品睿酒店',he:'9.24万',exp:'16.62万'},
+  {name:'兰欧酒店(临沂河东区政府琅琊古城店)',he:'8.64万',exp:'34.28万'},
+  {name:'上海鲸喜连连酒店',he:'8.41万',exp:'32.05万'},
+  {name:'兰欧·尚品酒店(洛阳牡丹广场万达广场店)',he:'8.37万',exp:'82.22万'},
+  {name:'尚客优酒店(武侯祠高升桥地铁站店)',he:'8.14万',exp:'15.34万'},
+  {name:'雷神电竞酒店（大同东信广场店）',he:'6.62万',exp:'9.8万'},
+  {name:'尚客优酒店(安阳光明路方特店）',he:'6.16万',exp:'1.91万'},
+  {name:'兰欧酒店(连云港东站店)',he:'5.96万',exp:'4.15万'},
+  {name:'信阳火车站天润中心品睿酒店',he:'5.1万',exp:'13.29万'},
+  {name:'许昌兰欧尚品酒店',he:'4.61万',exp:'12.15万'},
+  {name:'尚客优酒店（乌兰布统景区店）',he:'4.18万',exp:'1.14万'},
+];
+const area=document.getElementById('caseArea');
+const caseScroll=document.createElement('div');
+caseScroll.className='case-scroll rv';
+caseScroll.id='caseScroll';
+// 22 个案例分成 3 行，每行内容复制一份做无缝循环
+const ROWS=3;
+const per=Math.ceil(cases.length/ROWS);
+for(let r=0;r<ROWS;r++){
+  const row=document.createElement('div');
+  row.className='case-row';
+  const start=r*per;
+  const chunk=cases.slice(start,start+per);
+  const card=c=>`
+    <div class="case-card">
+      <div class="cc-top"><span class="hn">${c.name}</span></div>
+      <div class="cc-kv"><span class="k">房费</span><span class="v">${c.he}</span></div>
+      <div class="cc-kv dark"><span class="k">曝光量</span><span class="v">${c.exp}</span></div>
+    </div>`;
+  row.innerHTML=chunk.map(card).join('')+chunk.map(card).join('');
+  caseScroll.appendChild(row);
+}
+area.appendChild(caseScroll);
+io.observe(caseScroll);
+
+/* ---------- gallery lightbox（已停用点击绑定，避免滑动时误触弹层） ---------- */
+const lb=document.createElement('div');
+lb.id='lightbox';
+lb.innerHTML='<img src="" alt=""><div class="lb-cap"></div>';
+document.body.appendChild(lb);
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+
+/* ---------- 04 phone shots: 14 screenshots into 2 rows marquee ---------- */
+(function(){
+  const box=document.getElementById('shotScroll');
+  if(!box) return;
+  const shots=['901','902','903','904','905','906','907','908','909','910','911','912','913','914'];
+  const ROWS=1, per=shots.length; // 一排横滚
+  for(let r=0;r<ROWS;r++){
+    const row=document.createElement('div');
+    row.className='shot-row';
+    const chunk=shots.slice(r*per,(r+1)*per);
+    const mk=n=>`<figure class="shot"><img src=${SHOT_URLS["phone_"+n]} width="420" height="863" alt="达人短视频案例 ${n}" loading="lazy" decoding="async"></figure>`;
+    row.innerHTML=chunk.map(mk).join('')+chunk.map(mk).join('');
+    box.appendChild(row);
+  }
+})();
+
+/* ---------- 04 live shots: 11 screenshots into 1 row marquee ---------- */
+(function(){
+  const box=document.getElementById('liveScroll');
+  if(!box) return;
+  const lives=['890','891','892','893','894','895','896','897','898','899','900'];
+  const mk=n=>`<figure class="shot"><img src=${SHOT_URLS["live_"+n]} width="420" height="863" alt="直播案例 ${n}" loading="lazy" decoding="async"></figure>`;
+  const row=document.createElement('div');
+  row.className='shot-row';
+  row.innerHTML=lives.map(mk).join('')+lives.map(mk).join('');
+  box.appendChild(row);
+})();
+
+/* ---------- generic auto-scroll marquee (kol 4 rows / shots 2 rows / cases 3 rows) ---------- */
+function initMarquee(box,speed){
+  if(!box) return;
+  const rows=[...box.children].map(t=>({t,pos:0,half:0,base:0}));
+  let paused=false, dragging=false, startX=0, vel=0, lastX=0, lastT=0;
+  let inView=false, rafId=null;
+  // 离屏暂停：只有滚进视口才跑动画，省电省CPU（微信内更流畅）
+  const vis=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      inView=e.isIntersecting;
+      if(inView && rafId===null) rafId=requestAnimationFrame(loop);
+    });
+  },{rootMargin:'120px'});
+  function measure(){
+    rows.forEach(r=>{
+      const kids=r.t.children;
+      if(!kids.length){ r.half=0; return; }
+      const n=kids.length/2;
+      r.half = (Number.isInteger(n) && kids[n])
+        ? kids[n].offsetLeft - kids[0].offsetLeft
+        : r.t.scrollWidth/2;
+      if(!(r.half>0)) r.half=r.t.scrollWidth/2;
+    });
+  }
+  measure();
+  window.addEventListener('resize',measure);
+  box.querySelectorAll('img').forEach(img=>{
+    if(!img.complete) img.addEventListener('load',measure);
+  });
+  window.addEventListener('load',measure);
+  setTimeout(measure,600);
+  // 悬停暂停只在“真鼠标”设备生效；触屏设备的点按会模拟 mouseenter
+  // 且不触发 mouseleave，会把动画永久暂停——这是手机上不滚动的根因
+  if(window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches){
+    box.addEventListener('mouseenter',()=>{ if(!dragging) paused=true; });
+    box.addEventListener('mouseleave',()=>{ paused=false; });
+  }
+  box.addEventListener('pointerdown',e=>{
+    dragging=true; paused=true; startX=e.clientX; lastX=e.clientX; lastT=performance.now();
+    rows.forEach(r=>r.base=r.pos);
+    box.classList.add('dragging'); box.setPointerCapture(e.pointerId);
+  });
+  box.addEventListener('pointermove',e=>{
+    if(!dragging) return;
+    const dx=e.clientX-startX;
+    const now=performance.now();
+    vel=(lastX-e.clientX)/Math.max(now-lastT,1);
+    rows.forEach(r=>{ r.pos=r.base - dx; });
+    lastX=e.clientX; lastT=now;
+  });
+  const isFine = window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches;
+  box.addEventListener('pointerup',()=>{ dragging=false; if(!isFine) paused=false; box.classList.remove('dragging'); });
+  box.addEventListener('pointercancel',()=>{ dragging=false; if(!isFine) paused=false; box.classList.remove('dragging'); });
+  box.addEventListener('wheel',e=>{
+    e.preventDefault();
+    const d=Math.abs(e.deltaX)>Math.abs(e.deltaY)? e.deltaX : e.deltaY;
+    rows.forEach(r=>{ r.pos+=d; r.base=r.pos; });
+  },{passive:false});
+  function loop(){
+    if(!inView || document.hidden){ rafId=null; return; }  // 离屏/切后台即停
+    if(!dragging){
+      if(!paused){ rows.forEach(r=>r.pos+=speed); }
+      else { rows.forEach(r=>r.pos+=vel); vel*=0.94; }
+    }
+    rows.forEach(r=>{
+      if(r.half>0){
+        if(r.pos>=r.half) r.pos-=r.half;
+        if(r.pos<0) r.pos+=r.half;
+        r.t.style.transform=`translate3d(${-r.pos}px,0,0)`;
+      }
+    });
+    rafId=requestAnimationFrame(loop);
+  }
+  vis.observe(box);
+}
+initMarquee(document.getElementById('kolScroll'),0.5);
+initMarquee(document.getElementById('shotScroll'),0.45);
+initMarquee(document.getElementById('liveScroll'),0.4);
+initMarquee(document.getElementById('caseScroll'),0.6);
+
+/* ---------- back to top ---------- */
+const toTop=document.getElementById('toTop');
+window.addEventListener('scroll',()=>{ toTop.classList.toggle('show',scrollY>600); });
+toTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+/* 方案1/2/3 轮播指示点：仅手机版（≤640px）显示，随滑动高亮 */
+(function(){
+  const t=document.querySelector('.tiers');
+  if(!t) return;
+  const dots=document.createElement('div');
+  dots.className='tier-dots';
+  const sp=[];
+  [...t.children].forEach(()=>{ const s=document.createElement('span'); dots.appendChild(s); sp.push(s); });
+  if(sp[0]) sp[0].classList.add('cur');
+  t.after(dots);
+  function sync(){
+    if(t.children.length<2) return;
+    const step=t.children[1].offsetLeft-t.children[0].offsetLeft;
+    if(!(step>0)) return;
+    const i=Math.min(sp.length-1,Math.max(0,Math.round(t.scrollLeft/step)));
+    sp.forEach((s,k)=>s.classList.toggle('cur',k===i));
+  }
+  t.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync);
+})();
+/* 手机版：部门小字横向压缩到与 logo 同宽，首尾两端对齐（仅 ≤640px 生效） */
+(function(){
+  const logo=document.querySelector('.brand-logo'),dept=document.querySelector('.brand-dept');
+  if(!logo||!dept) return;
+  function fitDept(){
+    if(window.innerWidth>640){ dept.style.transform='none'; return; }
+    dept.style.transform='none';
+    const target=logo.getBoundingClientRect().width;
+    const w=dept.getBoundingClientRect().width;
+    if(w>0&&target>0) dept.style.transform='scale('+(target/w).toFixed(4)+')';
+  }
+  fitDept();
+  window.addEventListener('load',fitDept);
+  window.addEventListener('resize',fitDept);
+  if(window.matchMedia) matchMedia('(max-width:640px)').addEventListener('change',fitDept);
+})();
+</script>
+</body>
+</html>
